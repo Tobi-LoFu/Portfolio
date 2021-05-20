@@ -1,0 +1,198 @@
+@import "_maps";
+@import "_mixins";
+@import "_variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.hero {
+    display: flex;
+}
+
+.bg-left {
+    width: 50%;
+    height: 100vh;
+    background: $gradient-bg-left, url(../assets/1621516705674.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-right {
+    width: 50%;
+    height: 100vh;
+    background: $gradient-bg-right, url(../assets/background-hero-right.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    // background-attachment: scroll;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 1fr) 2fr;
+    gap: 0.5rem;
+    
+}
+
+.task-1 {
+    grid-area: 1 / 4 / 3 / 1;
+    animation: 1.5s ease-in-out both running slidein-1;
+    border: 2px solid lime;
+}
+
+@keyframes slidein-1 {
+    from {
+        margin-bottom: 100%;
+        height: 0;
+        background-color: white;
+    }
+
+    to {
+        margin-bottom: 0%;
+        height: 100%;
+        background-color: transparent;
+       }
+    }
+
+.task-2 {
+    grid-column: 4 /8;
+    grid-row: 1 / 2;
+    animation: 1.5s ease-in-out both running slidein-2;
+    border: 2px solid red;
+  
+    transition: all 2s;
+
+    &:hover {
+        animation: 1.5s ease-in-out reverse both running slidein-2;
+        cursor: pointer;
+        background-color: yellow;
+        
+    }
+}
+
+
+@keyframes slidein-2 {
+    from {
+        margin-left: 100%;
+        width: 0%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+       }
+    }
+
+.task-3 {
+    grid-area: 2 / 8 / 3 / 4;
+    animation: 1.5s ease-in both running slidein-3;
+    border: 2px solid blue;
+}
+
+@keyframes slidein-3 {
+    from {
+        margin-left: 100%;
+        width: 0%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+       }
+    }
+
+.task-4 {
+    grid-area: 3 / 6 / 5 / 1;
+    animation: 1.5s ease-in both running slidein-4;
+    border: 2px solid yellow;
+}
+
+@keyframes slidein-4 {
+    from {// z-index: 3;
+        margin-right: 100%;
+        width: 0;
+    }
+
+    to {
+        margin-right: 0%;
+        width: 100%;
+       }
+    }
+
+.task-5 {
+    grid-area: -2 / 8 / -1 / 6;
+    animation: 1.5s ease-in both running slidein-5;
+    border: 2px solid deeppink;
+    // transform-origin: bottom;
+    // position: absolute;
+    // bottom: 0;
+    // right: 0;
+
+}
+
+@keyframes slidein-5 {
+    from {
+        margin-left: 100%;
+        width: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+       }
+}
+
+.headline {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+
+h1 {
+    width: 5%;
+    color: $flame;
+    font-size: 80px;
+    
+    span {
+        color: $french-sky-blue;
+    }
+}
+
+
+
+.slide-tl {
+    animation: slide-tl 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@keyframes slide-tl {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+        font-size: 1px;
+    }
+    100% {
+        transform: translateY(-10px) translateX(-300%);
+        opacity: 1;
+        font-size: 80px;
+    }
+  }
+  
