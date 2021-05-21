@@ -1,0 +1,36 @@
+@mixin centered-flex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin card-style() {
+    border: 1px solid #de6325b0;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(184, 213, 251, 0.219);
+    transition: all 1s ease-out;
+    box-shadow: 10px 10px 10px rgba(168, 168, 168, 0.37), 
+                10px 10px 10px #de63258e,
+                -2px -2px 10px rgba(168, 168, 168, 0.37), 
+                -2px -2px 10px #de63258e,
+                1px -1px 1px rgba(168, 168, 168, 0.37), 
+                -1px 1px 1px #de63258e,
+                -1px 1px 1px rgba(168, 168, 168, 0.37), 
+                1px -1px 1px #de63258e;
+}
+
+@mixin hero_link() {
+    font-family: $p-text;
+    text-decoration: none;
+    color: rgb(245, 245, 245);
+    padding: 80px;
+    font-size: 20px;
+    transition: all 1s ease-out;
+}
+
+@mixin hero_link_hover() {
+    font-weight: 800;
+    font-size: 50px;
+    opacity: 0.5;
+}
