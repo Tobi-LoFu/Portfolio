@@ -20,6 +20,10 @@ body {
     font-family: $p-text;
 }
 
+// Header | Hero
+
+// Hero - left side
+
 .hero {
     display: flex;
 }
@@ -27,42 +31,62 @@ body {
 .bg-left {
     width: 50%;
     height: 100vh;
-    background: $gradient-bg-left, url(../assets/1621516705674.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-h1 {
-    width: 5%;
-    color: $flame;
-    font-size: 80px;
-    font-family: $h-text;
-    
-    span {
-        color: $french-sky-blue;
-    }
-}
-
-.slide-tl {
     position: relative;
-    top: 30%;
-    left: 0;
-    animation: slide-tl 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    background-image: $gradient-bg-left;
+    
+
+    .visible_first {
+        img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center; 
+            z-index: -1;       
+        }
+
+        h1, h2 {
+            width: 5%;
+            color: $flame;
+            font-size: 80px;
+            font-family: $h-text;
+    
+                span {
+                    color: $french-sky-blue;
+                    font-weight: bold;
+                }
+        }
+
+        #title_1 {
+            position: absolute;
+            top: 30%;
+            left: 70%;
+        }
+
+        #title_2 {
+            position: absolute;
+            top: 35%;
+            left: 10%;
+            font-size: 50px;
+        }
+        
+        .hide {
+            display:none
+        }
+
+        &:hover div:first-child {
+            display: none;
+        }
+
+        &:hover div:last-child {
+            display: flex;
+        }
+    }
 }
 
-@keyframes slide-tl {
-    0% {
-        transform: translateY(0%) translateX(100%);
-        opacity: 0;
-        font-size: 10px;
-    }
-    100% {
-        transform: translateY(0%) translateX(1400%);
-        opacity: 1;
-        font-size: 80px;
-    }
-  }
+// End of Hero - left side
+
+
+// Hero - right side
 
 .bg-right {
     width: 50%;
@@ -75,17 +99,19 @@ h1 {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(2, 1fr) 2fr;
     gap: 0.5rem;
+    overflow: hidden;
 }
 
 .task-1 {
     grid-area: 1 / 4 / 3 / 1;
-    animation: 1s ease-in-out both running slidein-1;
+    animation: 1.4s ease-in-out both running slidein-1;
     // border: 2px solid green;
     .about {
         width: 100%;
         height: 100%;
         @include centered-flex();
         transition: all 1s ease-out;
+        
 
         &:hover {
             width: 300px;
@@ -106,13 +132,18 @@ h1 {
 }
 
 @keyframes slidein-1 {
-    from {
+    0% {
         margin-bottom: 100%;
         height: 0;
-        background-color: #70aafe;
+        background-color: $blue-ryb;
+        border: 2px solid $whitish;
     }
 
-    to {
+    99% {
+        border: 2px solid #efefef1e;
+    }
+
+    100% {
         margin-bottom: 0%;
         height: 100%;
         background-color: transparent;
@@ -121,7 +152,7 @@ h1 {
 
 .task-2 {
     grid-area: 1 / 8 / 2 / 4;
-    animation: 1s ease-in-out both running slidein-2;
+    animation: 1.4s ease-in-out both running slidein-2;
     // border: 2px solid red;
     
     .skills {
@@ -152,9 +183,14 @@ h1 {
     from {
         margin-left: 100%;
         width: 0%;
-        background-color: #70aafe;
+        background-color: $blue-ryb;
+        border: 2px solid $whitish;
     }
 
+    99% {
+        border: 2px solid #efefef1e;
+    }
+    
     to {
         margin-left: 0%;
         width: 100%;
@@ -163,7 +199,7 @@ h1 {
 
 .task-3 {
     grid-area: 2 / 8 / 3 / 4;
-    animation: 1s ease-in-out both running slidein-3;
+    animation: 1.4s ease-in-out both running slidein-3;
     // border: 2px solid blue;
     .projects {
         width: 100%;
@@ -193,8 +229,14 @@ h1 {
     from {
         margin-left: 100%;
         width: 0%;
-        background-color: #70aafe;
+        background-color: $blue-ryb;
+        border: 2px solid $whitish;
     }
+
+    99% {
+        border: 2px solid #efefef1e;
+    }
+
 
     to {
         margin-left: 0%;
@@ -204,7 +246,7 @@ h1 {
 
 .task-4 {
     grid-area: 3 / 6 / 4 / 1;
-    animation: 1s ease-in-out both running slidein-4;
+    animation: 1.4s ease-in-out both running slidein-4;
     // border: 2px solid $flame;
     .resume {
         width: 100%;
@@ -234,8 +276,14 @@ h1 {
     from {// z-index: 3;
         margin-right: 100%;
         width: 0;
-        background-color: #70aafe;
+        background-color: $blue-ryb;
+        border: 2px solid $whitish;
     }
+
+    99% {
+        border: 2px solid #efefef1e;
+    }
+
 
     to {
         margin-right: 0%;
@@ -245,7 +293,7 @@ h1 {
 
 .task-5 {
     grid-area: -2 / 8 / -1 / 6;
-    animation: 1s ease-in-out both running slidein-5;
+    animation: 1.4s ease-in-out both running slidein-5;
     // border: 2px solid deeppink;
     .contact {
         width: 100%;
@@ -274,19 +322,258 @@ h1 {
 
 @keyframes slidein-5 {
     from {
-        margin-top: 180%;
-        height: 0;
-        background-color: #70aafe;
+        margin-left: 100%;
+        width: 0;
+        background-color: $blue-ryb;
+         border: 2px solid $whitish;
     }
 
+    99% {
+        border: 2px solid #efefef1e;
+    }
+
+
     to {
-        margin-top: 0%;
-        height: 100%;
+        margin-left: 0%;
+        width: 100%;
        }
 }
 
+// End of Hero 
+
+// MAIN - About section
+// Testimonial -1
+
+.testimonial_ben {
+    background: linear-gradient(0deg, #325abc 39%, #281e44 99%);
+    color: $whitish;
+    width: 100%;
+    height: 30rem;
+    padding: 1rem;
+    @include centered-flex;
+    justify-content: space-evenly;
+    
+    
+    .quote {
+        width: 65%;
+        font-size: 2.5rem;
+        font-style: italic;
+        line-height: 1.8;
+        letter-spacing: 1px;
+        @include centered-flex;
+    }
+    .quote_provider {
+        background-color: transparent;
+        color: #de6325ff;
+        text-shadow: 1px 1px 1px #94b9ff;
+        width: 22rem;
+        height: 22rem;
+        padding: 4rem 1rem;
+        line-height: 1.5;
+        @include centered-flex;
+        flex-wrap: wrap;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #1111aa, #1414ca);
+        box-shadow:  20px 20px 25px #1010a1,
+                    -10px -10px 25px #1616d9;
+                  
+        .dci_logo {
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 1rem;
+            
+            .shadow {
+                filter: drop-shadow(1px 1px 1px #94b9ff);
+            }
+            
+            svg {
+                width: 50%;
+            }
+            
+        }
+    }
+}
+
+// End of Testimonial - 1
+
+// MAIN: Content - About
+
+.main_about {
+    width: 100%;
+    height: 100vh;
+    background-color: $french-sky-blue;
+    display: flex;
+    background: $gradient-main-content;
+
+    .nav_about {
+        @include navbar
+    }
+
+    .pos_sticky {
+        @include position_sticky()
+    }
+
+
+    .content_about {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        color: $whitish;
+        
+        h2 {
+            margin-top: 3rem;
+            margin-bottom: 5rem;
+            font-size: 5rem;
+            text-shadow: 3px 5px 2px $myrtle-green;
+        }
+
+        div {
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 2px #333;
+        }
+    }
+}
+
+// MAIN: End of Content - About
+
+// Testimonial -2
+
+.testimonial_ale {
+    background: linear-gradient(0deg, #a9bff5 13%, #70aafe 93%);
+    color: $whitish;
+    width: 100%;
+    height: 30rem;
+    padding: 1rem;
+    @include centered-flex;
+    justify-content: space-evenly;
+    
+    
+    .quote {
+        width: 65%;
+        font-size: 2.5rem;
+        font-style: italic;
+        line-height: 1.8;
+        letter-spacing: 1px;
+        @include centered-flex;
+    }
+    .quote_provider {
+        background-color: transparent;
+        color: #de6325ff;
+        text-shadow: 1px 1px 1px #dfdfdf;
+        width: 22rem;
+        height: 22rem;
+        padding: 4.5rem 1rem;
+        line-height: 1.2;
+        @include centered-flex;
+        flex-wrap: wrap;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #85a7d8, #9ec7ff);
+        box-shadow:  20px 20px 60px #7391bb,
+                    -10px -10px 60px #b5e3ff;
+                  
+        .dci_logo {
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 1rem;
+            
+            .shadow {
+                    filter: drop-shadow(1px 1px 1px #dfdfdf);
+            }
+
+            svg {
+                width: 50%;
+            } 
+        }
+    }
+}
+
+// End of Testimonial - 2
+
+
+// MAIN: Content - SKILLS
+
+.main_skills {
+    background: linear-gradient(0deg, #aec2a7 12%, #a9bff5 100%);
+    height: auto;
+    display: flex;
+
+    .nav_skills {
+        @include navbar
+    }
+
+    .pos_sticky {
+        @include position_sticky
+    }
+
+
+    .card_container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-template-rows: 8rem, repeat(1fr);
+        gap: 5rem;
+        padding: 5rem;
+
+        h2 {
+            grid-column: 1 / -1;
+            font-size: 5rem;
+            color: $whitish;
+            text-shadow: 2px 2px 3px $french-sky-blue;
+        }
+
+        .card {
+            padding: 2rem;
+            border: 1px solid #ffffffb0;
+            border-radius: 10px;
+            backdrop-filter: blur(2px);
+            background-color: #ffffff28;
+            box-shadow: 6px 6px 16px #a8a8a85e, 
+                        6px 6px 16px #fffcfa8e;
+            text-align: center;
+            
+            h3 {
+                margin-top: 2rem;
+                text-shadow: 2px 2px 3px $whitish;
+            }
+            
+            div {
+                min-height: 20rem;
+                @include centered-flex;
+                svg {
+                
+                max-height: 15rem;
+                }
+            }
+        }
+    }
+}
+// End of MAIN: Content - SKILLS 
+
+//   Section Main - Conatct
 
 
 
-  
-  
+.contact_icons {
+    @include centered-flex;
+    
+    ul {
+        display: flex;
+        
+        li {
+            list-style: none;
+        }
+        .icon {
+            margin: 0 0.5rem 0 0.5rem;
+            font-size: 4rem;
+            
+            a {
+                color: $flame;
+            }
+        }
+       
+    }
+}
