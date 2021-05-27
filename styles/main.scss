@@ -702,10 +702,24 @@ body {
                         6px 6px 16px #fffcfa8e;
 
             h3 {
-                background: linear-gradient(0deg, #c9c9c98c 0%, #edf1e981 100%),    url(../assets/escape.png);
+                background: linear-gradient(0deg, #c9c9c98c 0%, #edf1e981 100%), url(../assets/escape.png);
                   
                 &:hover {
                     background: linear-gradient(0deg, #c9c9c902 0%, #edf1e900   100%), url(../assets/escape.png);
+                }
+            }  
+        }
+
+        .tribute_coppi {
+            @include project();
+            box-shadow: 6px 6px 16px #a8a8a85e, 
+                        6px 6px 16px #fffcfa8e;
+           
+            h3 {
+                background: linear-gradient(0deg, #c9c9c98c 0%, #edf1e981 100%), url(../assets/tribute_coppi.jpg);
+                  
+                &:hover {
+                    background: linear-gradient(0deg, #c9c9c902 0%, #edf1e900   100%), url(../assets/tribute_coppi.jpg);
                 }
             }  
         }
@@ -1074,4 +1088,7 @@ body {
 
 }
 
-
+/* Desktops and laptops  */
+@media only screen  and (min-width: 1224px) {
+    /* Styles */
+}
